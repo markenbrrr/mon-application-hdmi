@@ -44,10 +44,10 @@
 
 <script>
 const Q = {
-  romantic: ["Quel moment avec moi t'a rendu le plus heureux ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché ?", "Si tu devais décrire notre relation en un mot ?", "Quel est le premier détail physique que tu as aimé chez moi ?", "C'est quoi pour toi une soirée parfaite avec moi ?", "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", "Si on partait demain, on irait où tous les deux ?", "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", "Quel est ton moment préféré de la journée quand on est ensemble ?"],
-  tease: ["Quel truc que je fais te rend fou/folle sans que je le sache ?", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quand es ce que tu me regarde et que je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
-  spicy: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Donne moi un truc que tu voudrais essayer mais que n'a jamais osé dire "],
-  dare: ["Envoie-moi une photo de la partie de ton corps que je préfère.", "Envoie-moi une vidéo qui me donnerait très envie de toi.", "Prends une photo sexy là tout de suite.", "Prends une photo de tes lèvres et envoie-la.", "Envoie une photo de toi dans ton miroir.","Prends une photo sexy la plus osée que tu n'ai jamais faite","Quelle genre de photos ou vidéos tu prefere que je t'envoi", "Envoie-moi une photo de la partie de ton corps que TU préfère." ]
+  romantique: ["Quel moment avec moi t'a rendu le plus heureux ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché ?", "Si tu devais décrire notre relation en un mot ?", "Quel est le premier détail physique que tu as aimé chez moi ?", "C'est quoi pour toi une soirée parfaite avec moi ?", "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", "Si on partait demain, on irait où tous les deux ?", "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", "Quel est ton moment préféré de la journée quand on est ensemble ?"],
+  verite: ["Quel truc que je fais te rend fou/folle sans que je le sache ?", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quand es ce que tu me regarde et que je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
+  cestchaud: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Donne moi un truc que tu voudrais essayer mais que n'a jamais osé dire "],
+  actionman: ["Envoie-moi une photo de la partie de ton corps que je préfère.", "Envoie-moi une vidéo qui me donnerait très envie de toi.", "Prends une photo sexy là tout de suite.", "Prends une photo de tes lèvres et envoie-la.", "Envoie une photo de toi dans ton miroir.","Prends une photo sexy la plus osée que tu n'ai jamais faite","Quelle genre de photos ou vidéos tu prefere que je t'envoi", "Envoie-moi une photo de la partie de ton corps que TU préfère." ]
 };
 
 let state = { screen: 'home', myName: '', joinCode: '', roomCode: '', playerNum: null, turn: 1, currentQ: 'Choisis une catégorie 👇', chat: [], scoreVal: 50 };
@@ -73,9 +73,9 @@ function render() {
       <div class="q-box">${state.currentQ}</div>
       <div class="cat-grid">
         <button class="cat-btn" style="background:#c9184a" onclick="pick('romantic')">❤️ Romantique</button>
-        <button class="cat-btn" style="background:#7209b7" onclick="pick('tease')">😏 Teasing</button>
-        <button class="cat-btn" style="background:#e07a00" onclick="pick('spicy')">🔥 Spicy</button>
-        <button class="cat-btn" style="background:#2b9348" onclick="pick('dare')">🎯 Défi</button>
+        <button class="cat-btn" style="background:#7209b7" onclick="pick('verite')">💡 Vérité</button>
+        <button class="cat-btn" style="background:#e07a00" onclick="pick('chaud')">🔥 C'est chaud</button>
+        <button class="cat-btn" style="background:#2b9348" onclick="pick('action')">⚡ Action</button>
       </div>
       <div class="chat-box" id="chat">${state.chat.map(m=>`<div class="msg ${m.type==='s'?'msg-info':(m.p==state.playerNum?'msg-me':'msg-other')}">${m.type==='c'?'<b>'+m.n+'</b>':''} ${m.t}</div>`).join('')}</div>
       <div style="display:flex;gap:5px;margin-bottom:10px"><input class="inp" id="mi" placeholder="Message..." style="margin:0"><button class="btn btn-red" onclick="send()" style="width:70px;margin:0">OK</button></div>
