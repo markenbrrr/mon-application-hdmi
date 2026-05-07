@@ -44,10 +44,10 @@
 
 <script>
 const Q = {
-  romantic: ["Quel moment avec moi t'a rendu le plus heureux(se) ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché(e) ?", "Si tu devais décrire notre relation en un mot, lequel ?", "Qu'est-ce que tu apprécieras encore plus chez moi dans 10 ans ?", "Quel serait le voyage de rêve qu'on ferait ensemble ?", "Comment sais-tu que tu tiens vraiment à quelqu'un ?"],
-  tease: ["Quel truc que je fais te rend fou/folle sans que je le sache ?", "Qu'est-ce que tu remarques en premier quand tu me regardes ?", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quel est ton regard préféré que je t'adresse ?", "Tu me regardes comment quand je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Quelle petite habitude de moi tu adorerais garder pour toujours ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
-  spicy: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Dis-moi ce que tu aimerais faire avec moi mais que tu ne m'as jamais dit", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit secrète ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Quelle surprise me ferait le plus d'effet selon toi ?", "Qu'est-ce que tu n'as jamais osé me dire mais tu penses souvent ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Qu'est-ce que tu attendrais de moi si on était seuls quelque part ?"],
-  dare: ["Envoie-moi un message qui me fait plaisir", "Dis-moi quelque chose que tu n'as jamais osé dire", "Envoie une photo sur snap de la partie de ton corps que tu préfères", "Envoie une photo sur snap de la partie que je préfère à ton avis", "Fais-moi sourire avec un message inattendu", "Donne-moi un défi à ton tour", "Envoie-moi un voice message avec une voix drôle", "Raconte-moi un souvenir que je ne connais pas encore", "Dis-moi 3 choses que tu adorerais faire avec moi", "Invente une blague sur nous deux"]
+  romantic: ["Quel moment avec moi t'a rendu le plus heureux ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché ?", "Si tu devais décrire notre relation en un mot ?", "Quel est le premier détail physique que tu as aimé chez moi ?", "C'est quoi pour toi une soirée parfaite avec moi ?", "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", "Si on partait demain, on irait où tous les deux ?", "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", "Quel est ton moment préféré de la journée quand on est ensemble ?"],
+  tease: ["Quel truc que je fais te rend fou/folle sans que je le sache ?", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quand es ce que tu me regarde et que je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
+  spicy: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Donne moi un truc que tu voudrais essayer mais que n'a jamais osé dire "],
+  dare: ["Envoie-moi une photo de la partie de ton corps que je préfère.", "Envoie-moi une vidéo qui me donnerait très envie de toi.", "Prends une photo sexy là tout de suite.", "Prends une photo de tes lèvres et envoie-la.", "Envoie une photo de toi dans ton miroir.","Prends une photo sexy la plus osée que tu n'ai jamais faite","Quelle genre de photos ou vidéos tu prefere que je t'envoi", "Envoie-moi une photo de la partie de ton corps que TU préfère." ]
 };
 
 let state = { screen: 'home', myName: '', joinCode: '', roomCode: '', playerNum: null, turn: 1, currentQ: 'Choisis une catégorie 👇', chat: [], scoreVal: 50 };
@@ -90,7 +90,7 @@ function render() {
   }
 }
 
-const prefix = "LOVE-STABLE-V4-";
+const prefix = "LOVE-STABLE-V5-";
 
 function create() {
   if(!state.myName) return alert("Ton prénom ?");
@@ -132,7 +132,8 @@ function sendScore() {
 }
 
 function pick(cat) {
-  const q = Q[cat][Math.floor(Math.random()*Q[cat].length)];
+  const qList = Q[cat];
+  const q = qList[Math.floor(Math.random()*qList.length)];
   state.currentQ = q; 
   if(conn) conn.send({type:'q', q:q}); 
   render();
