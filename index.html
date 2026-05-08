@@ -6,32 +6,153 @@
   <title>Babe <3</title>
   <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
   <style>
+    :root {
+      --bg: #0a0a0c;
+      --card-bg: rgba(26, 26, 34, 0.85);
+      --primary: #ff4d6d;
+      --secondary: #c9184a;
+      --accent: #ffb3c1;
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, system-ui, sans-serif; background: #0f0f12; color: white; }
-    #root { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 24px 16px; }
-    .title { color: #ff4d6d; font-size: 22px; font-weight: 600; margin-bottom: 4px; }
-    .sub { color: #ffb3c1; font-size: 13px; margin-bottom: 20px; text-align: center; opacity: 0.8; }
-    .card { background: #1a1a22; border-radius: 14px; padding: 22px; width: 100%; max-width: 440px; border: 0.5px solid #2e2e3e; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-    .inp { width: 100%; padding: 12px; border-radius: 8px; border: 0.5px solid #3a3a4e; background: #0f0f18; color: white; font-size: 14px; margin-bottom: 10px; outline: none; }
-    .inp:focus { border-color: #ff4d6d; }
-    .btn { width: 100%; padding: 12px; border-radius: 8px; border: none; color: white; cursor: pointer; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
-    .btn-red { background: #c9184a; }
-    .btn-dark { background: #2a2a3a; }
-    .btn-score { background: #7209b7; width: auto; padding: 8px 16px; font-size: 13px; margin-bottom: 0; }
-    .code-box { font-size: 32px; font-weight: 700; letter-spacing: 6px; color: #ff4d6d; text-align: center; margin: 16px 0; background: #0f0f18; padding: 16px; border-radius: 10px; border: 1px dashed #ff4d6d; }
-    .turn-bar { border-radius: 8px; padding: 10px; font-size: 13px; margin-bottom: 12px; text-align: center; font-weight: 600; }
-    .q-box { background: #0f0f18; border-radius: 10px; padding: 16px; color: #ffb3c1; font-size: 15px; min-height: 60px; margin-bottom: 12px; border: 0.5px solid #2e2e3e; text-align: center; display: flex; align-items: center; justify-content: center; line-height: 1.4; }
-    .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-    .cat-btn { padding: 10px; border-radius: 8px; border: none; color: white; cursor: pointer; font-size: 12px; font-weight: 600; }
-    .chat-box { border: 0.5px solid #2e2e3e; border-radius: 10px; height: 160px; overflow-y: auto; padding: 10px; margin-bottom: 10px; background: #0f0f18; display: flex; flex-direction: column; }
-    .msg { font-size: 13px; margin-bottom: 8px; padding: 8px 12px; border-radius: 12px; max-width: 85%; line-height: 1.4; }
-    .msg-me { background: #ff4d6d; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-    .msg-other { background: #2e2e3e; color: #ffb3c1; align-self: flex-start; border-bottom-left-radius: 2px; }
-    .msg-info { background: transparent; color: #888; align-self: center; font-style: italic; font-size: 11px; text-align: center; margin: 5px 0; }
-    .msg b { display: block; font-size: 10px; opacity: 0.7; margin-bottom: 2px; text-transform: uppercase; }
-    .score-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; background: #0f0f18; padding: 8px; border-radius: 10px; border: 0.5px solid #2e2e3e; }
-    .score-label { font-size: 13px; color: #ff4d6d; min-width: 40px; font-weight: bold; }
-    input[type=range] { flex: 1; accent-color: #ff4d6d; cursor: pointer; }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+      background: var(--bg);
+      background-image: radial-gradient(circle at 50% -20%, #2e1018 0%, #0a0a0c 60%);
+      color: white; 
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Animation du fond */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(45deg, rgba(255, 77, 109, 0.05) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    #root { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; }
+
+    .title { 
+      color: var(--primary); 
+      font-size: 28px; 
+      font-weight: 800; 
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+      text-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+    }
+
+    .sub { color: var(--accent); font-size: 14px; margin-bottom: 24px; text-align: center; opacity: 0.7; font-weight: 300; }
+
+    .card { 
+      background: var(--card-bg); 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 24px; 
+      padding: 24px; 
+      width: 100%; 
+      max-width: 440px; 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .inp { 
+      width: 100%; padding: 14px; border-radius: 12px; 
+      border: 1px solid rgba(255, 255, 255, 0.1); 
+      background: rgba(0, 0, 0, 0.3); 
+      color: white; font-size: 15px; margin-bottom: 12px; outline: none; 
+      transition: all 0.3s ease;
+    }
+
+    .inp:focus { border-color: var(--primary); background: rgba(0, 0, 0, 0.5); }
+
+    .btn { 
+      width: 100%; padding: 14px; border-radius: 12px; border: none; 
+      color: white; cursor: pointer; font-size: 15px; font-weight: 700; 
+      margin-bottom: 10px; transition: all 0.2s ease;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+
+    .btn:active { transform: scale(0.98); }
+    .btn-red { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+    .btn-red:hover { box-shadow: 0 0 15px rgba(255, 77, 109, 0.4); }
+    .btn-dark { background: rgba(255, 255, 255, 0.08); }
+    .btn-dark:hover { background: rgba(255, 255, 255, 0.12); }
+    
+    .btn-score { 
+      background: #7209b7; width: auto; padding: 10px 18px; 
+      font-size: 13px; margin-bottom: 0; border-radius: 10px;
+    }
+
+    .code-box { 
+      font-size: 36px; font-weight: 800; letter-spacing: 8px; 
+      color: var(--primary); text-align: center; margin: 20px 0; 
+      background: rgba(0,0,0,0.4); padding: 20px; border-radius: 16px; 
+      border: 1px dashed rgba(255, 77, 109, 0.5); 
+    }
+
+    .turn-bar { 
+      border-radius: 12px; padding: 12px; font-size: 14px; 
+      margin-bottom: 16px; text-align: center; font-weight: 700;
+      transition: all 0.4s ease;
+    }
+
+    .q-box { 
+      background: rgba(255, 255, 255, 0.03); 
+      border-radius: 16px; padding: 20px; color: var(--accent); 
+      font-size: 16px; min-height: 80px; margin-bottom: 16px; 
+      border: 1px solid rgba(255, 255, 255, 0.05); 
+      text-align: center; display: flex; align-items: center; 
+      justify-content: center; line-height: 1.5; font-style: italic;
+    }
+
+    .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    
+    .cat-btn { 
+      padding: 12px; border-radius: 12px; border: none; color: white; 
+      cursor: pointer; font-size: 13px; font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+    .cat-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+    .chat-box { 
+      border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; 
+      height: 180px; overflow-y: auto; padding: 12px; margin-bottom: 12px; 
+      background: rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; 
+    }
+
+    .msg { 
+      font-size: 13.5px; margin-bottom: 10px; padding: 10px 14px; 
+      border-radius: 18px; max-width: 85%; line-height: 1.4;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    .msg-me { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg-other { background: rgba(255, 255, 255, 0.1); color: var(--accent); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .msg-info { background: transparent; color: #888; align-self: center; font-style: italic; font-size: 11px; margin: 8px 0; }
+    .msg b { display: block; font-size: 10px; opacity: 0.8; margin-bottom: 3px; }
+
+    .score-row { 
+      display: flex; align-items: center; gap: 12px; margin-top: 10px; 
+      background: rgba(0,0,0,0.3); padding: 12px; border-radius: 16px; 
+      border: 1px solid rgba(255, 255, 255, 0.05); 
+    }
+    .score-label { font-size: 15px; color: var(--primary); min-width: 45px; font-weight: 800; }
+    
+    input[type=range] { 
+      flex: 1; accent-color: var(--primary); cursor: pointer; height: 6px; 
+      background: rgba(255,255,255,0.1); border-radius: 5px; appearance: none;
+    }
+
+    /* Scrollbar minimaliste */
+    .chat-box::-webkit-scrollbar { width: 4px; }
+    .chat-box::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
   </style>
 </head>
 <body>
@@ -105,24 +226,24 @@ function render() {
     document.getElementById('n').oninput = e => state.myName = e.target.value;
     document.getElementById('c').oninput = e => state.joinCode = e.target.value.toUpperCase();
   } else if (state.screen === 'waiting') {
-    card.innerHTML = `<div class="sub">Donne ce code à ton partenaire :</div><div class="code-box">${state.roomCode}</div><div class="sub">En attente...</div>`;
+    card.innerHTML = `<div class="sub">Donne ce code à ton partenaire :</div><div class="code-box">${state.roomCode}</div><div class="sub">En attente d'une connexion...</div>`;
   } else {
     const isMyTurn = state.playerNum === state.turn;
     card.innerHTML = `
-      <div class="turn-bar" style="background:${isMyTurn?'#1a3a22':'#1a1a2e'};color:${isMyTurn?'#4ade80':'#7dd3fc'}">${isMyTurn?'🎯 C\'est ton tour !':'⏳ Son tour...'}</div>
+      <div class="turn-bar" style="background:${isMyTurn?'rgba(74, 222, 128, 0.1)':'rgba(125, 211, 252, 0.1)'};color:${isMyTurn?'#4ade80':'#7dd3fc'};border:1px solid ${isMyTurn?'rgba(74, 222, 128, 0.2)':'rgba(125, 211, 252, 0.2)'}">${isMyTurn?'🎯 C\'est ton tour !':'⏳ Tour de ton partenaire...'}</div>
       <div class="q-box">${state.currentQ}</div>
       <div class="cat-grid">
         <button class="cat-btn" style="background:#c9184a" onclick="pick('rom')">❤️ Romantique</button>
         <button class="cat-btn" style="background:#7209b7" onclick="pick('ver')">💡 Vérité</button>
-        <button class="cat-btn" style="background:#e07a00" onclick="pick('cha')">🔥 C'est chaud</button>
+        <button class="cat-btn" style="background:#e07a00" onclick="pick('cha')">🔥 Chaud</button>
         <button class="cat-btn" style="background:#2b9348" onclick="pick('act')">⚡ Action</button>
       </div>
       <div class="chat-box" id="chat">${state.chat.map(m=>`<div class="msg ${m.type==='s'?'msg-info':(m.p==state.playerNum?'msg-me':'msg-other')}">${m.type==='c'?'<b>'+m.n+'</b>':''} ${m.t}</div>`).join('')}</div>
-      <div style="display:flex;gap:5px;margin-bottom:10px"><input class="inp" id="mi" placeholder="Message..." style="margin:0"><button class="btn btn-red" onclick="send()" style="width:70px;margin:0">OK</button></div>
+      <div style="display:flex;gap:8px;margin-bottom:12px"><input class="inp" id="mi" placeholder="Message..." style="margin:0"><button class="btn btn-red" onclick="send()" style="width:70px;margin:0">OK</button></div>
       <div class="score-row">
         <span class="score-label">${state.scoreVal}%</span>
         <input type="range" min="0" max="100" value="${state.scoreVal}" id="sl">
-        <button class="btn btn-score" onclick="sendScore()">⭐ Score</button>
+        <button class="btn btn-score" onclick="sendScore()">⭐ Envoyer</button>
       </div>`;
     const c = document.getElementById('chat'); if(c) c.scrollTop = c.scrollHeight;
     document.getElementById('mi').onkeydown = e => { if(e.key==='Enter') send(); };
