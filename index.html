@@ -45,40 +45,38 @@
 <script>
 const Q = {
   rom: [
-    "Quel moment avec moi t'a rendu le plus heureux ?", 
-    "Qu'est-ce que tu aimes le plus chez moi ?", 
-    "Quel souvenir veux-tu recréer avec moi ?", 
-    "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", 
-    "Quelle chanson te fait penser à moi ?", 
-    "Quel geste de ma part t'a le plus touché ?", 
-    "Si tu devais décrire notre relation en un mot ?", 
-    "Quel est le premier détail physique que tu as aimé chez moi ?", 
-    "C'est quoi pour toi une soirée parfaite avec moi ?", 
-    "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", 
-    "Si on partait demain, on irait où tous les deux ?", 
-    "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", 
-    "Quel est ton moment préféré de la journée quand on est ensemble ?"
+    "Si on devait s'enfuir tous les deux un week-end, tu choisirais la mer ou la montagne ?",
+    "Quel est le plus beau compliment que je t'ai fait ?",
+    "Quelle est la première chose à laquelle tu penses quand tu te réveilles à côté de moi ?",
+    "Quel est le vêtement que je porte que tu préfères ?",
+    "Quelle activité on n'a jamais faite ensemble et que tu meurs d'envie d'essayer ?",
+    "Si tu pouvais figer un moment de notre histoire pour toujours, ce serait lequel ?",
+    "Qu'est-ce qui te rend le plus fier dans notre couple ?",
+    "Quel est l'endroit le plus insolite où tu aimerais m'embrasser ?",
+    "Quel petit rituel quotidien avec moi tu ne voudrais jamais perdre ?"
   ],
   ver: [
-    "Quel truc que je fais te rend fou/folle sans que je le sache ?",
-    "Est-ce que tu as déjà simulé pendant l'acte ?", 
-    "À quelles situations tu penses à moi ?", 
-    "Qu'est-ce qui te ferait craquer en 10 secondes ?", 
-    "Quand est-ce que tu me regardes et que je ne le sais pas ?", 
-    "Qu'est-ce que je fais qui te fait sourire bêtement ?", 
-    "Quel surnom me donnerais-tu si tu pouvais ?", 
-    "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"
+    "Quelle a été ta première impression quand tu m'as vu pour la toute première fois ?",
+    "Y a-t-il un secret sur toi que tu n'as encore osé dire à personne, même pas à moi ?",
+    "Quelle est la chose la plus folle que tu aies faite par amour que je ne sache pas ?",
+    "Si tu pouvais changer une seule petite habitude chez moi, ce serait quoi ?",
+    "Quel est ton plus grand regret dans notre relation ?",
+    "Si on te proposait 1 million d'euros pour ne plus jamais me voir, tu hésiterais combien de secondes ?",
+    "Quelle est la partie de mon corps qui te rend le plus emoustiller ?"
   ],
   cha: [
-    "Qu'est-ce qui te donne envie de te rapprocher de moi ?", 
-    "Quel détail chez moi pourrait m'exciter le plus ?", 
-    "Qu'est-ce que tu aimerais que je fasse là maintenant ?", 
-    "Où voudrais-tu aller avec moi pour une nuit ?", 
-    "Qu'est-ce qui te ferait penser à moi toute la nuit ?", 
-    "Si on avait une soirée sans limites, tu proposerais quoi ?", 
-    "Donne-moi un truc que tu voudrais essayer mais que n'as jamais osé dire ?",
-    "Dis-moi ce qui t'excite le plus ?", 
-    "Si jamais tu devais me chauffer, qu'est-ce que tu ferais là maintenant ?"
+    "Quelle est ta zone érogène la plus sensible que je n'explore pas assez ?",
+    "Décris-moi ton fantasme le plus récurrent quand tu penses à nous deux.",
+    "Quelle tenue aimerais-tu me voir porter ce soir ?",
+    "Est-ce que tu préfères quand je suis tendre ou quand je suis plus dominant ?",
+    "Tu préfère dominr ou etre dominé", 
+    "Quel est l'endroit le plus risqué où tu aimerais qu'on le fasse ?",
+    "Quelle est la chose la plus osée que tu aies envie que je te chuchote à l'oreille ?",
+    "Si tu devais utiliser un seul mot pour décrire nos moments intimes, ce serait quoi ?",
+    "Quel est le souvenir le plus 'chaud' que tu gardes de nous ?",
+    "Quel est la position que tu aimerais fair qu'on a jamais faite",
+    "Qu'aimerais tu essayer de nouveau?",
+    "Quelle serais le fantasme que tu voudrais réaliser avec moi?"
   ],
   act: [
     "Envoie-moi une photo de la partie de ton corps que je préfère.", 
