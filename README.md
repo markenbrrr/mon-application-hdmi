@@ -44,10 +44,52 @@
 
 <script>
 const Q = {
-  rom: ["Quel moment avec moi t'a rendu le plus heureux ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché ?", "Si tu devais décrire notre relation en un mot ?", "Quel est le premier détail physique que tu as aimé chez moi ?", "C'est quoi pour toi une soirée parfaite avec moi ?", "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", "Si on partait demain, on irait où tous les deux ?", "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", "Quel est ton moment préféré de la journée quand on est ensemble ?"],
-  ver: ["Quel truc que je fais te rend fou/folle sans que je le sache ?","es ce que tu as deja simulé pendant l'acte", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quand es ce que tu me regarde et que je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
-  cha: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Donne moi un truc que tu voudrais essayer mais que n'a jamais osé dire ","Dis moi ce qui t'exite le plus", "Si jamais tu devais me chaffer quesque tu ferrais la maintenant? ],
-  act: ["Envoie-moi une photo de la partie de ton corps que je préfère.", "Envoie-moi une vidéo qui me donnerait très envie de toi.", "Prends une photo sexy là tout de suite.", "Prends une photo de tes lèvres et envoie-la.", "Envoie une photo de toi dans ton miroir.","Prends une photo sexy la plus osée que tu n'ai jamais faite","Quelle genre de photos ou vidéos tu prefere que je t'envoi", "Envoie-moi une photo de la partie de ton corps que TU préfère."]
+  rom: [
+    "Quel moment avec moi t'a rendu le plus heureux ?", 
+    "Qu'est-ce que tu aimes le plus chez moi ?", 
+    "Quel souvenir veux-tu recréer avec moi ?", 
+    "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", 
+    "Quelle chanson te fait penser à moi ?", 
+    "Quel geste de ma part t'a le plus touché ?", 
+    "Si tu devais décrire notre relation en un mot ?", 
+    "Quel est le premier détail physique que tu as aimé chez moi ?", 
+    "C'est quoi pour toi une soirée parfaite avec moi ?", 
+    "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", 
+    "Si on partait demain, on irait où tous les deux ?", 
+    "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", 
+    "Quel est ton moment préféré de la journée quand on est ensemble ?"
+  ],
+  ver: [
+    "Quel truc que je fais te rend fou/folle sans que je le sache ?",
+    "Est-ce que tu as déjà simulé pendant l'acte ?", 
+    "À quelles situations tu penses à moi ?", 
+    "Qu'est-ce qui te ferait craquer en 10 secondes ?", 
+    "Quand est-ce que tu me regardes et que je ne le sais pas ?", 
+    "Qu'est-ce que je fais qui te fait sourire bêtement ?", 
+    "Quel surnom me donnerais-tu si tu pouvais ?", 
+    "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"
+  ],
+  cha: [
+    "Qu'est-ce qui te donne envie de te rapprocher de moi ?", 
+    "Quel détail chez moi pourrait m'exciter le plus ?", 
+    "Qu'est-ce que tu aimerais que je fasse là maintenant ?", 
+    "Où voudrais-tu aller avec moi pour une nuit ?", 
+    "Qu'est-ce qui te ferait penser à moi toute la nuit ?", 
+    "Si on avait une soirée sans limites, tu proposerais quoi ?", 
+    "Donne-moi un truc que tu voudrais essayer mais que n'as jamais osé dire ?",
+    "Dis-moi ce qui t'excite le plus ?", 
+    "Si jamais tu devais me chauffer, qu'est-ce que tu ferais là maintenant ?"
+  ],
+  act: [
+    "Envoie-moi une photo de la partie de ton corps que je préfère.", 
+    "Envoie-moi une vidéo qui me donnerait très envie de toi.", 
+    "Prends une photo sexy là tout de suite.", 
+    "Prends une photo de tes lèvres et envoie-la.", 
+    "Envoie une photo de toi dans ton miroir.",
+    "Prends une photo sexy la plus osée que tu n'aies jamais faite",
+    "Quel genre de photos ou vidéos tu préfères que je t'envoie ?", 
+    "Envoie-moi une photo de la partie de ton corps que TU préfères."
+  ]
 };
 
 let state = { screen: 'home', myName: '', joinCode: '', roomCode: '', playerNum: null, turn: 1, currentQ: 'Choisis une catégorie 👇', chat: [], scoreVal: 50 };
