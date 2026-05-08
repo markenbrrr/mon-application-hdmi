@@ -43,12 +43,11 @@
 </div>
 
 <script>
-// Les clés ici doivent correspondre exactement aux noms dans pick('...')
 const Q = {
-  romantique: ["Quel moment avec moi t'a rendu le plus heureux ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché ?", "Si tu devais décrire notre relation en un mot ?", "Quel est le premier détail physique que tu as aimé chez moi ?", "C'est quoi pour toi une soirée parfaite avec moi ?", "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", "Si on partait demain, on irait où tous les deux ?", "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", "Quel est ton moment préféré de la journée quand on est ensemble ?"],
-  verite: ["Quel truc que je fais te rend fou/folle sans que je le sache ?", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quand es ce que tu me regarde et que je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
-  cestchaud: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Donne moi un truc que tu voudrais essayer mais que n'a jamais osé dire "],
-  actionman: ["Envoie-moi une photo de la partie de ton corps que je préfère.", "Envoie-moi une vidéo qui me donnerait très envie de toi.", "Prends une photo sexy là tout de suite.", "Prends une photo de tes lèvres et envoie-la.", "Envoie une photo de toi dans ton miroir.","Prends une photo sexy la plus osée que tu n'ai jamais faite","Quelle genre de photos ou vidéos tu prefere que je t'envoi", "Envoie-moi une photo de la partie de ton corps que TU préfère." ]
+  rom: ["Quel moment avec moi t'a rendu le plus heureux ?", "Qu'est-ce que tu aimes le plus chez moi ?", "Quel souvenir veux-tu recréer avec moi ?", "Quelle vie voudrais-tu mener avec moi dans 5 ans ?", "Quelle chanson te fait penser à moi ?", "Quel geste de ma part t'a le plus touché ?", "Si tu devais décrire notre relation en un mot ?", "Quel est le premier détail physique que tu as aimé chez moi ?", "C'est quoi pour toi une soirée parfaite avec moi ?", "Quelle est la chose la plus mignonne que j'ai faite pour toi ?", "Si on partait demain, on irait où tous les deux ?", "Est-ce qu'il y a une odeur ou un objet qui te fait direct penser à moi ?", "Quel est ton moment préféré de la journée quand on est ensemble ?"],
+  ver: ["Quel truc que je fais te rend fou/folle sans que je le sache ?", "À quelles situations tu penses à moi ?", "Qu'est-ce qui te ferait craquer en 10 secondes ?", "Quand es ce que tu me regarde et que je ne le sais pas ?", "Qu'est-ce que je fais qui te fait sourire bêtement ?", "Quel surnom me donnerais-tu si tu pouvais ?", "Qu'est-ce que j'ai dit un jour que tu n'as pas oublié ?"],
+  cha: ["Qu'est-ce qui te donne envie de te rapprocher de moi ?", "Quel détail chez moi pourrait m'exciter le plus ?", "Qu'est-ce que tu aimerais que je fasse là maintenant ?", "Où voudrais-tu aller avec moi pour une nuit ?", "Qu'est-ce qui te ferait penser à moi toute la nuit ?", "Si on avait une soirée sans limites, tu proposerais quoi ?", "Donne moi un truc que tu voudrais essayer mais que n'a jamais osé dire "],
+  act: ["Envoie-moi une photo de la partie de ton corps que je préfère.", "Envoie-moi une vidéo qui me donnerait très envie de toi.", "Prends une photo sexy là tout de suite.", "Prends une photo de tes lèvres et envoie-la.", "Envoie une photo de toi dans ton miroir.","Prends une photo sexy la plus osée que tu n'ai jamais faite","Quelle genre de photos ou vidéos tu prefere que je t'envoi", "Envoie-moi une photo de la partie de ton corps que TU préfère."]
 };
 
 let state = { screen: 'home', myName: '', joinCode: '', roomCode: '', playerNum: null, turn: 1, currentQ: 'Choisis une catégorie 👇', chat: [], scoreVal: 50 };
@@ -73,10 +72,10 @@ function render() {
       <div class="turn-bar" style="background:${isMyTurn?'#1a3a22':'#1a1a2e'};color:${isMyTurn?'#4ade80':'#7dd3fc'}">${isMyTurn?'🎯 C\'est ton tour !':'⏳ Son tour...'}</div>
       <div class="q-box">${state.currentQ}</div>
       <div class="cat-grid">
-        <button class="cat-btn" style="background:#c9184a" onclick="pick('romantique')">❤️ Romantique</button>
-        <button class="cat-btn" style="background:#7209b7" onclick="pick('verite')">💡 Vérité</button>
-        <button class="cat-btn" style="background:#e07a00" onclick="pick('cestchaud')">🔥 C'est chaud</button>
-        <button class="cat-btn" style="background:#2b9348" onclick="pick('actionman')">⚡ Action</button>
+        <button class="cat-btn" style="background:#c9184a" onclick="pick('rom')">❤️ Romantique</button>
+        <button class="cat-btn" style="background:#7209b7" onclick="pick('ver')">💡 Vérité</button>
+        <button class="cat-btn" style="background:#e07a00" onclick="pick('cha')">🔥 C'est chaud</button>
+        <button class="cat-btn" style="background:#2b9348" onclick="pick('act')">⚡ Action</button>
       </div>
       <div class="chat-box" id="chat">${state.chat.map(m=>`<div class="msg ${m.type==='s'?'msg-info':(m.p==state.playerNum?'msg-me':'msg-other')}">${m.type==='c'?'<b>'+m.n+'</b>':''} ${m.t}</div>`).join('')}</div>
       <div style="display:flex;gap:5px;margin-bottom:10px"><input class="inp" id="mi" placeholder="Message..." style="margin:0"><button class="btn btn-red" onclick="send()" style="width:70px;margin:0">OK</button></div>
@@ -133,11 +132,11 @@ function sendScore() {
 }
 
 function pick(cat) {
-  const qList = Q[cat];
-  if(!qList) return; // Sécurité si la catégorie n'existe pas
-  const q = qList[Math.floor(Math.random()*qList.length)];
-  state.currentQ = q; 
-  if(conn) conn.send({type:'q', q:q}); 
+  const list = Q[cat];
+  if(!list) return;
+  const question = list[Math.floor(Math.random()*list.length)];
+  state.currentQ = question;
+  if(conn) conn.send({type:'q', q:question});
   render();
 }
 
